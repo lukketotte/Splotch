@@ -12,12 +12,12 @@ from scipy.ndimage.measurements import label
 from scipy.ndimage.morphology import distance_transform_edt
 from scipy.spatial import distance_matrix
 import sklearn.cluster
-from skimage.morphology import watershed
+from skimage.segmentation import watershed
 from skimage.feature import peak_local_max
 
 import jax.numpy as np
 from jax import grad, jit
-from jax.experimental import optimizers
+from jax.example_libraries import optimizers
 
 def to_rdump(data,filename):
     with open(filename,'w') as f:

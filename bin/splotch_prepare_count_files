@@ -22,8 +22,8 @@ def prepare_count_files(count_files,suffix='.unified.tsv',minimum_detection_rate
   
   # construct the multi index
   for filename,frame in  zip(count_files,frames):
-  	frame.columns = pd.MultiIndex.from_product([[filename],frame.columns],names=['Sample','Coordinate'])
-  	frame.index.name = 'Gene'
+    frame.columns = pd.MultiIndex.from_product([[filename],frame.columns],names=['Sample','Coordinate'])
+    frame.index.name = 'Gene'
   
   # concatenate counts
   result = pd.concat(frames,copy=False,axis=1,sort=True)
@@ -57,7 +57,7 @@ if __name__ == '__main__':
                       dest='minimum_detection_rate',type=float,required=False,
                       default=0.02,help='minimum detection rate (default is 0.02)')
   parser.add_argument('-v','--version',action='version',
-                      version='%s %s'%(parser.prog,splotch.__version__))
+                      version='%s %s'%(parser.prog,'0.0.1'))
 
   options = parser.parse_args()
 
